@@ -1,11 +1,11 @@
-package ru.comptech.recreation.api.controllers;
+package su.nsk.comptech.recreation.api.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ru.comptech.recreation.api.dto.DataRequest;
-import ru.comptech.recreation.api.services.DbService;
+import su.nsk.comptech.recreation.api.dto.DataRequest;
+import su.nsk.comptech.recreation.api.services.DbService;
 
 import javax.validation.constraints.NotNull;
 

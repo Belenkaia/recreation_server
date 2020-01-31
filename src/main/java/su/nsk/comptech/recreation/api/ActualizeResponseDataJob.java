@@ -1,10 +1,10 @@
-package ru.comptech.recreation.api;
+package su.nsk.comptech.recreation.api;
 
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MyTimerTask extends TimerTask {
+public class ActualizeResponseDataJob extends TimerTask {
 
     @Override
     public void run() {
@@ -23,7 +23,7 @@ public class MyTimerTask extends TimerTask {
     }
 
     public void ex(){
-        TimerTask timerTask = new MyTimerTask();
+        TimerTask timerTask = new ActualizeResponseDataJob();
         // стартуем TimerTask в виде демона
 
         Timer timer = new Timer(true);

@@ -1,7 +1,8 @@
-package ru.comptech.recreation.api.entities;
+package su.nsk.comptech.recreation.api.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.Entity;
@@ -17,9 +18,9 @@ public class SocketData implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NonNull
-    private Integer idDevice;
+    private Integer deviceId;
     @NonNull
-    private Integer idPlace;
+    private Integer placeId;
     @NonNull
     private Integer countPerson;
 }
