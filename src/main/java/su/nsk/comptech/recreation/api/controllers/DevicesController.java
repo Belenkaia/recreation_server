@@ -2,9 +2,7 @@ package su.nsk.comptech.recreation.api.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import su.nsk.comptech.recreation.api.dto.DataDeviceRequest;
 import su.nsk.comptech.recreation.api.services.DbService;

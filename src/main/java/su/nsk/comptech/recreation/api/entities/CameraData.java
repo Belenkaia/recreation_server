@@ -11,14 +11,14 @@ import java.util.Date;
 
 @Entity
 @Setter
-public class SocketData {
+public class CameraData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NonNull
     private int placeId;
     @NonNull
-    private int countSocket;
+    private int count;
     @NonNull
     private Date currTimestamp;
 }
