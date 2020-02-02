@@ -19,9 +19,7 @@ public class DevicesController {
 
     @PostMapping
     @ResponseBody
-    public Integer setDataDevice(@NotNull @RequestBody DataDeviceRequest request) {
-        System.out.println("TROLOLO");
+    public void setDataDevice(@NotNull @RequestBody DataDeviceRequest request) {
         dbService.add(request);
-        return 1;
     }
 }
