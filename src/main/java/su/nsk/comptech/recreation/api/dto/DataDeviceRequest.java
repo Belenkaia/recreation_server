@@ -7,9 +7,8 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @Getter
-public class DataRequest implements Serializable {
+public class DataDeviceRequest implements Serializable {
     private int deviceId;
     private int placeId;
-    private int countPerson;
-
+    private int count;
 }

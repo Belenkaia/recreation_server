@@ -10,17 +10,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Setter
 public class SocketData implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NonNull
-    private Integer deviceId;
+    private int placeId;
     @NonNull
-    private Integer placeId;
+    private int countSocket;
     @NonNull
-    private Integer countPerson;
+    private Date currTimestamp;
 }

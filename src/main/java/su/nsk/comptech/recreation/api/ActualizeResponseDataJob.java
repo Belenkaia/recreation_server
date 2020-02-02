@@ -1,7 +1,11 @@
 package su.nsk.comptech.recreation.api;
 
 import su.nsk.comptech.recreation.api.Drawer.DrawerService;
+import su.nsk.comptech.recreation.api.services.PredictionService;
 
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.*;
 
 public class ActualizeResponseDataJob extends TimerTask {
@@ -38,11 +42,14 @@ public class ActualizeResponseDataJob extends TimerTask {
         System.out.println("TimerTask начал выполнение");
 
         // вызываем cancel() через какое-то время
-        try {
+        /*try {
             Thread.sleep(120000);
+
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
+        PredictionService predictionService = new PredictionService();
+        predictionService.getDataPredication();
         timer.cancel();
         System.out.println("TimerTask прекращена");
         try {
