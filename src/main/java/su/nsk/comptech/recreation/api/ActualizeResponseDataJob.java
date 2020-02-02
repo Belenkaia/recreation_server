@@ -1,8 +1,8 @@
 package su.nsk.comptech.recreation.api;
 
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
+import su.nsk.comptech.recreation.api.Drawer.DrawerService;
+
+import java.util.*;
 
 public class ActualizeResponseDataJob extends TimerTask {
 
@@ -16,6 +16,12 @@ public class ActualizeResponseDataJob extends TimerTask {
     private void completeTask() {
         try {
             // допустим, выполнение займет 20 секунд
+            System.out.println("drawing started");
+            List<Integer> list = new ArrayList<Integer>();
+            list.add(3);
+            list.add(4);
+            DrawerService.colorizeBuilding(list);
+            System.out.println("drawing ended");
             Thread.sleep(20000);
         } catch (InterruptedException e) {
             e.printStackTrace();
