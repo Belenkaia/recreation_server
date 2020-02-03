@@ -1,8 +1,13 @@
 package su.nsk.comptech.recreation.api.Drawer;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import su.nsk.comptech.recreation.api.services.LoadActualDataService;
+
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -12,7 +17,13 @@ import java.util.List;
  * в зависимости от загруженности рекреационных зон
  */
 
+@Service
+@RequiredArgsConstructor
 public class DrawerService {
+
+    @Autowired
+    LoadActualDataService loadActualDataService;
+
     private static String floorToString(final int floor) {
         if (floor != 3 && floor != 4) {
             throw new RuntimeException("Incorrect floor found while loading properties. Expected 3 or 4, received " + floor);
@@ -20,10 +31,11 @@ public class DrawerService {
         return floor == 3 ? "third" : "fourth";
     }
 
-    public static void colorizeBuilding(final List<Integer> floors) {
+    public void colorizeBuilding(final List<Integer> floors) {
         for (int floor : floors) {
             String floorNumber = floorToString(floor);
             List<DrawerArea> areas = AreaPropertiesLoader.loadProperties(floorNumber);
+            loadActualDataService.loadActualData(areas);
             colorizeFloor(areas, floorNumber);
         }
     }

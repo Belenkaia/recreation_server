@@ -1,11 +1,7 @@
 package su.nsk.comptech.recreation.api;
 
 import su.nsk.comptech.recreation.api.Drawer.DrawerService;
-import su.nsk.comptech.recreation.api.services.PredictionService;
 
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.*;
 
 public class ActualizeResponseDataJob extends TimerTask {
@@ -24,7 +20,10 @@ public class ActualizeResponseDataJob extends TimerTask {
             List<Integer> list = new ArrayList<Integer>();
             list.add(3);
             list.add(4);
-            DrawerService.colorizeBuilding(list);
+
+            DrawerService drawerService = new DrawerService();
+            drawerService.colorizeBuilding(list);
+
             System.out.println("drawing ended");
             Thread.sleep(20000);
         } catch (InterruptedException e) {
@@ -48,8 +47,7 @@ public class ActualizeResponseDataJob extends TimerTask {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }*/
-        PredictionService predictionService = new PredictionService();
-        predictionService.getDataPredication();
+
         timer.cancel();
         System.out.println("TimerTask прекращена");
         try {

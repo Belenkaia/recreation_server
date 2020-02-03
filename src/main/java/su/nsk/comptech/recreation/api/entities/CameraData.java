@@ -1,5 +1,6 @@
 package su.nsk.comptech.recreation.api.entities;
 
+import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.NonNull;
 
@@ -11,6 +12,7 @@ import java.util.Date;
 
 @Entity
 @Setter
+@Getter
 public class CameraData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

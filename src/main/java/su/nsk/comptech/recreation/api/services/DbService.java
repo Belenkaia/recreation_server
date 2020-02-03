@@ -21,10 +21,10 @@ public class DbService {
     private final CameraRepository cameraRepository;
 
     public void add(DataDeviceRequest request) {
-        if (request.getDeviceId() == 0) {
+        if (request.getDeviceId() == 1) {
             addSocketData(request);
         }
-        if(request.getDeviceId() == 1) {
+        if(request.getDeviceId() == 0) {
             addCameraData(request);
         }
     }

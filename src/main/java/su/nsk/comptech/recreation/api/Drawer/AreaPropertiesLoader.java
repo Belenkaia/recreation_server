@@ -20,7 +20,7 @@ class AreaPropertiesLoader {
         startY = Integer.parseInt(properties.getProperty(areaName + ".start_y"));
         width = Integer.parseInt(properties.getProperty(areaName + ".width"));
         height = Integer.parseInt(properties.getProperty(areaName + ".height"));
-        return new DrawerArea(startX, startY, width, height);
+        return new DrawerArea(startX, startY, width, height,0, areaName);
     }
 
     static List<DrawerArea> loadProperties(final String floorNumber) {
