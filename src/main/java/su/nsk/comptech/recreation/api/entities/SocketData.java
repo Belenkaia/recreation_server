@@ -14,7 +14,7 @@ import java.util.Date;
 @ToString
 public class SocketData {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NonNull
     private int placeId;
