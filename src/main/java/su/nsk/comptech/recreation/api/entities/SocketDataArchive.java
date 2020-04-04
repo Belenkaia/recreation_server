@@ -12,14 +12,14 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class SocketData {
+public class SocketDataArchive {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NonNull
-    private int placeId;
+    private long placeId;
     @NonNull
-    private int countSocket;
+    private int count;
     @NonNull
     private Date currTimestamp;
 }

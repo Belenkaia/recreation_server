@@ -5,6 +5,8 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
     <!-- Should be only links to per-version cumulative changelog files. -->
-    <include file="changelog-v.1.0/SOCKET_DATA_02022020.xml" relativeToChangelogFile="true"/>
-    <include file="changelog-v.1.0/CAMERA_DATA_02022020.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-v.1.0/SOCKET_ACTUAL_DATA_05042020.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-v.1.0/CAMERA_ACTUAL_DATA_05042020.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-v.1.0/SOCKET_DATA_ARCHIVE_05042020.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-v.1.0/CAMERA_DATA_ARCHIVE_05042020.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

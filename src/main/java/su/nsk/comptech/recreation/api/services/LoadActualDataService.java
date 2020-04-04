@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import su.nsk.comptech.recreation.api.Drawer.DrawerArea;
-import su.nsk.comptech.recreation.api.entities.CameraData;
-import su.nsk.comptech.recreation.api.entities.SocketData;
-import su.nsk.comptech.recreation.api.repositories.CameraRepository;
-import su.nsk.comptech.recreation.api.repositories.SocketRepository;
+import su.nsk.comptech.recreation.api.entities.CameraDataArchive;
+import su.nsk.comptech.recreation.api.entities.SocketDataArchive;
+import su.nsk.comptech.recreation.api.repositories.CameraActualDataRepository;
+import su.nsk.comptech.recreation.api.repositories.SocketActualDataRepository;
 
 import java.util.List;
 
@@ -16,24 +16,24 @@ import java.util.List;
 public class LoadActualDataService {
 
     @Autowired
-    private final SocketRepository socketRepository;
+    private final SocketActualDataRepository socketRepository;
     @Autowired
-    private final CameraRepository cameraRepository;
+    private final CameraActualDataRepository cameraRepository;
 
     public void loadActualData(List<DrawerArea> areas) {
-        List<SocketData> socketDataList = socketRepository.actualizeData();
+        List<SocketDataArchive> socketDataList = socketRepository.actualizeData();
 
-        for (SocketData rec : socketDataList) {
+        for (SocketDataArchive rec : socketDataList) {
             for (DrawerArea area : areas) {
                 if (rec.getPlaceId() == Integer.parseInt(area.getAreaName())) {
-                    area.setPercentage(rec.getCountSocket()*25); // TODO: allow to add >4 sockets
+                    area.setPercentage(rec.getCount()*25); // TODO: allow to add >4 sockets
                 }
             }
         }
 
-        List<CameraData> cameraDataList = cameraRepository.actualizeData();
+        List<CameraDataArchive> cameraDataList = cameraRepository.actualizeData();
 
-        for (CameraData rec : cameraDataList) {
+        for (CameraDataArchive rec : cameraDataList) {
             for (DrawerArea area : areas) {
                 if (rec.getPlaceId() == Integer.parseInt(area.getAreaName())) {
                     int personFound = rec.getCount();

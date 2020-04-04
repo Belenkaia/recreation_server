@@ -3,9 +3,9 @@ package su.nsk.comptech.recreation.api.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import su.nsk.comptech.recreation.api.entities.SocketData;
-import su.nsk.comptech.recreation.api.repositories.CameraRepository;
-import su.nsk.comptech.recreation.api.repositories.SocketRepository;
+import su.nsk.comptech.recreation.api.entities.SocketDataArchive;
+import su.nsk.comptech.recreation.api.repositories.CameraActualDataRepository;
+import su.nsk.comptech.recreation.api.repositories.SocketActualDataRepository;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ import java.util.List;
 public class PredictionService {
 
     @Autowired
-    private final SocketRepository socketRepository;
+    private final SocketActualDataRepository socketRepository;
     @Autowired
-    private final CameraRepository cameraRepository;
+    private final CameraActualDataRepository cameraRepository;
 
-    public List<SocketData> getDataPredication(List<Integer> placesId) {
+    public List<SocketDataArchive> getDataPredication(List<Integer> placesId) {
         //List<DataPredictionRequest> request = new ArrayList<>(); //надо достать данные из базы и заполнить массив
 
         /*final RestTemplate restTemplate = new RestTemplate();
