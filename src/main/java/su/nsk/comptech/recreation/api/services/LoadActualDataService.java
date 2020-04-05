@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import su.nsk.comptech.recreation.api.Drawer.DrawerArea;
-import su.nsk.comptech.recreation.api.entities.CameraDataArchive;
-import su.nsk.comptech.recreation.api.entities.SocketDataArchive;
+import su.nsk.comptech.recreation.api.entities.CameraActualData;
+import su.nsk.comptech.recreation.api.entities.SocketActualData;
 import su.nsk.comptech.recreation.api.repositories.CameraActualDataRepository;
 import su.nsk.comptech.recreation.api.repositories.SocketActualDataRepository;
 
@@ -21,22 +21,20 @@ public class LoadActualDataService {
     private final CameraActualDataRepository cameraRepository;
 
     public void loadActualData(List<DrawerArea> areas) {
-        List<SocketDataArchive> socketDataList = socketRepository.actualizeData();
-
-        for (SocketDataArchive rec : socketDataList) {
+        Iterable<SocketActualData> iterableSocket = socketRepository.findAll();
+        for (SocketActualData actualData : iterableSocket) {
             for (DrawerArea area : areas) {
-                if (rec.getPlaceId() == Integer.parseInt(area.getAreaName())) {
-                    area.setPercentage(rec.getCount()*25); // TODO: allow to add >4 sockets
+                if (actualData.getPlaceId() == Integer.parseInt(area.getAreaName())) {
+                    area.setPercentage(actualData.getCount() * 25); // TODO: allow to add >4 sockets
                 }
             }
         }
 
-        List<CameraDataArchive> cameraDataList = cameraRepository.actualizeData();
-
-        for (CameraDataArchive rec : cameraDataList) {
+        Iterable<CameraActualData> iterableCamera = cameraRepository.findAll();
+        for(CameraActualData actualData: iterableCamera){
             for (DrawerArea area : areas) {
-                if (rec.getPlaceId() == Integer.parseInt(area.getAreaName())) {
-                    int personFound = rec.getCount();
+                if (actualData.getPlaceId() == Integer.parseInt(area.getAreaName())) {
+                    int personFound = actualData.getCount();
                     if (personFound > 10)
                         area.setPercentage(100);
                     else
